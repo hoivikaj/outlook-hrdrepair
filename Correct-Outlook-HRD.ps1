@@ -123,8 +123,8 @@ Foreach ( $foundreg in $results ) {
     } elseif ($string_before -like "$($GLOB_DESIRED_DOMAIN_SHORT)\*") {
 
         # Get the username from string after backslash
-        $netbios = $string_before.Split('\\')[0].trim()
-        $username = $string_before.Split('\\')[1].trim()
+        $netbios = $string_before.Split('\\')[0].trim([char]$null)
+        $username = $string_before.Split('\\')[1].trim([char]$null)
         Write-Host "Converting $($string_before) to UPN: $($username)@$($netbios).$($GLOB_DESIRED_DOMAIN)" -ForegroundColor green
 
         # Convert to Unicode Stream Object
