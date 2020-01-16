@@ -119,7 +119,7 @@ Foreach ( $foundreg in $results ) {
     Write-Host "Found @ in value which indicates FQDN: $($string_before), Exiting." -ForegroundColor yellow
 
 
-    # If that string contains UNCH\, split() the string on the \ and extract username into $extract_username
+    # If that string contains domain\, split() the string on the \ and extract username into $extract_username
     } elseif ($string_before -like "$($GLOB_DESIRED_DOMAIN_SHORT)\*") {
 
         # Get the username from string after backslash
