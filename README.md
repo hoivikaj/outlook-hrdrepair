@@ -14,3 +14,15 @@ When the user_hint value is in domain\user format - Home Realm Discovery cannot 
 This script recursively searches the Profiles Key for this value (which appears to be unique to this logon type) and if the data of that value contains a , converts the logon format to UPN and re-injects.
 
 This does NOT appear to break existing saved-password logon workflow, removing saved credentials does not appear to be required.
+
+## Problem Identification
+
+Search the user HKCU for a VALUE with this name: 001f3d16
+(HKCU:\Software\Microsoft\Office\16.0\Outlook\Profiles\<Profile Name>\<WEF Provider ID> with value 001f3d16)
+
+If this value is in domain\username format you will have a bad time going to Modern Authentication for Exchange Online. Users will get an error asking them to try a different account since that format will fail HRD.
+
+You CAN delete this value, but it will cause HRD to ask for an email address upon Modern Authentication setup. This script will correct the value, or create it if it doesnt exist with the users email address which will completly hide the HRD prompt on first logon after MA go live.
+
+
+
