@@ -11,7 +11,7 @@ Outlook stores the user_hint value in hex in the registry. While this value appe
 
 When the user_hint value is in domain\user format - Home Realm Discovery cannot run properly (expects FQDN via UPN or Email). This setting is stored in this key: HKCU:\Software\Microsoft\Office\16.0\Outlook\Profiles<Profile Name><WEF Provider ID> with value 001f3d16 of type REG_BINARY.
 
-This script recursively searches the Profiles Key for this value (which appears to be unique to this logon type) and if the data of that value contains a "\" converts the logon format to UPN and re-injects.
+This script recursively searches the Profiles Key for this value (which appears to be unique to this logon type) and if the data of that value contains a "\\" converts the logon format to UPN and re-injects.
 
 This does NOT appear to break existing saved-password logon workflow, removing saved credentials does not appear to be required.
 
