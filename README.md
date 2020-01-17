@@ -1,7 +1,7 @@
 # outlook-hrdrepair
 Script to correct Outlook saved credentials in non HRD friendly format
 
-It is common for users to enter their credentials in Outlook Anywhere workflows in domain\username format when using legacy authentication. If you attempt to enable modern authentication while users have this value saved in the registry, Home-Realm Discovery will fail because the username string does not have the domain in the proper format for auto acceleration.
+It is common for users to enter their credentials in Outlook Anywhere workflows in domain\username format when using legacy authentication. If you attempt to enable exchange modern authentication while users have this value saved in the registry, Home-Realm Discovery will fail because the username string does not have the domain in the proper format for auto acceleration.
 
 This script fixes the user_hint stored in netbios\ format and converts to UPN. This issue is really only seen during Legact to Modern Authenication Go-Live for Office 365 Hybrid.
 
